@@ -1,0 +1,12 @@
+    {
+        "Odd_email_Frame": [9,820.075,21.047,86.563,"Email"],
+        "Odd_no_Frame":[0,911.622,30.307,23.378,"Number"],
+        "Odd_date_Frame": [9,252,18,130.567,"Year","Month","Date","Day"],
+        "Odd_unit_Frame":[14.173,218.268 ,9.071,19,"Unit"],
+        "Odd_edition_Frame":[13.74,239.244,8.504,18,"Edition"],
+        "Even_email_Frame": [9,36,23.315,81.598],
+        "Even_no_Frame":[0,0,30.307,31.22],
+        "Even_date_Frame": [9,252,18,130.567],
+        "Even_unit_Frame":[13.5,567.713 ,9,19],
+        "Even_edition_Frame":[13.5,588,9,18]
+    }

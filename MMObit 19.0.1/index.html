@@ -1,0 +1,567 @@
+<!--Developed by Donis Abraham-->
+<!--Developer at Malayala Manorama-->
+<!--Date 10-10-2023-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Scripts and styles Included Here-->
+    <script src="main.js"></script>
+    <script src="assets/js/dak-ui.js"></script>
+    <script src="assets/js/dak-flow-engine.js"></script>
+    <script src="assets/js/dak-tplt-engine.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+    <img class="logo" src="/assets/img/logo.png">
+    <ul>
+        <li>
+            <label for="Unit">Choose a Unit:</label>
+            <select name="Unit" id="Unit">
+                <option value="" selected>--Please choose an option--</option>
+                <option value="ALP">ALP</option>
+                <option value="CHN">CHN</option>
+                <option value="CLT">CLT</option>
+                <option value="KLM">KLM</option>
+                <option value="KNR">KNR</option>
+                <option value="KTM">KTM</option>
+                <option value="MPM">MPM</option>
+                <option value="PKD">PKD</option>
+                <option value="PTA">PTA</option>
+                <option value="TCR">TCR</option>
+                <option value="TVM">TVM</option>
+                <option value="GLF">GLF</option>
+                <option value="OK">OK</option>
+            </select>
+        </li>
+        <li>
+            <label for="Editon">Choose an Editon:</label>
+
+            <select name="Editon" id="Editon">
+                <option value="" selected>--Please choose an option--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="ZDK">ZDK</option>
+                <option value="ZDM">ZDM</option>
+            </select>
+        </li>
+        <li>
+            <sp-button variant="cta" class="sp-button" id="ads-import">Import</sp-button>
+        </li>
+        <li>
+            <sp-button variant="cta" class="sp-button" id="admin">Admin</sp-button>
+        </li>
+    </ul>
+</nav>
+<div class="main-panel" id="main-panel">
+    <!-- File that we want to flow in Obit page is stored here -->
+    <div class="adtree" id="adTreeIncluded">
+        <div class="Excluded-included_header">
+            <nav>
+                <ul class="left-ul-header">
+                    <span class="label">Included:-</span>
+                    <span class="value" id="total_included"></span>
+                    </span></ul>
+                <ul class="right-ul-header">
+                    <sp-checkbox class="sp-checkbox-header" id="select_all_included">Select All</sp-checkbox>
+                </ul>
+            </nav>
+
+        </div>
+        <div class="includeAd_list" id="includeAd_list"></div>
+    </div>
+    <!-- Button control to include and exclude ads -->
+    <div class="buttons">
+        <button class="chngbutton" disabled="true" id="excludeAd">></button>
+        <button class="chngbutton" disabled="true" id="includeAd">&lt</button>
+        <!-- <button class="chngbutton" disabled="true" id="excludeAds" onClick="">>></button>
+        <button class="chngbutton" disabled="true" id="includeAds" onclick="">&lt&lt</button> -->
+    </div>
+    <!-- Button Control to create-new-page, open-page, Ready & UnReady Page, Flow, Fill -->
+    <div class="function-buttons">
+        <sp-button variant="cta" class="f-btn" id="dak-new">New</sp-button>
+        <sp-button variant="cta" class="f-btn" id="dak-open">Open</sp-button>
+        <sp-button variant="cta" class="f-btn" id="dak-ready">Ready</sp-button>
+        <sp-button variant="cta" class="f-btn" id="dak-flow">Flow</sp-button>
+        <sp-button variant="cta" class="f-btn" id="dak-fill">Fill</sp-button>
+        <sp-button variant="cta" class="f-btn" id="dak-print">Print</sp-button>
+
+        <!-- <sp-button variant="cta" id="f-button">save</sp-button> -->
+    </div>
+    <!-- File that we don't want to flow in Obit page is stored here -->
+    <div class="adTreeExcluded" id="adTreeExcluded">
+        <div class="Excluded-included_header">
+            <nav>
+                <ul class="left-ul-header">
+                    <span class="label">Excluded:-</span>
+                    <span class="value" id="total_excluded"></span>
+                    </span></ul>
+                <ul class="right-ul-header">
+                    <sp-checkbox class="sp-checkbox-header" id="select_all_excluded">Select All</sp-checkbox>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="excludeAd_list" id="excludeAd_list"></div>
+    </div>
+    <!-- Preview panel to show story preview -->
+    <div class="preview-panel">
+        <nav class="story-main-nav">
+            <ul class="left-ul">
+                <li>
+                    <div class="id-display">
+                        <span class="label">ID:</span>
+                        <span class="value" id="story-id"></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="right-ul">
+                <li>
+                    <div class="id-display">
+                        <span class="label">Name:-</span>
+                        <span class="value" id="story-name"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="id-display">
+                        <span class="label">Place:-</span>
+                        <span class="value" id="story-place"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="id-display">
+                        <span class="label">Position:-</span>
+                        <span class="value" id="story-position"></span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="photo-label">
+            <span>Story Preview:</span>
+        </div>
+        <div class="story-photo">
+            <img id="image" src="./assets/img/placeholder.jpg" alt="Image Placeholder">
+        </div>
+        <div class="story-content" id="story-content">
+        </div>
+    </div>
+    <!-- Admin Interface login panel -->
+    <div id="admin-panel-login" class="admin-panel-login">
+        <form class="login">
+            <h3> Welcome back Admin</h3>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <sp-button variant="cta" id="login-btn">Login</sp-button>
+            <sp-button variant="secondary" id="cancel-btn">Cancel</sp-button>
+        </form>
+    </div>
+    <!-- Dialog box that display Selected frame preferences -->
+    <dialog class="dialogbox-confirm" id="confirm-box">
+
+        <div class="p-txt" id=p_txt>
+            <p id="confirmTxt"></p>
+            <p class="dialog-TXT" id="colTxt"></p>
+            <p class="dialog-TXT" id="widthTxt"></p>
+            <p class="dialog-TXT" id="heightTxt"></p>
+        </div>
+         <nav>
+                <ul>
+                    <li>
+                        <sp-button variant="secondary" class="no-btn" id="NoAdFlow">No</sp-button>
+                    </li>
+                 <li>
+                        <sp-button variant="cte" class="yes-btn" id="flowadsTotextFrame">Yes</sp-button>
+
+                    </li>
+                </ul>
+            </nav>
+    </dialog>
+
+    <div class="OpenPager-panel-form" id="OpenFile-form">
+        <h3>Open Obit Files</h3>
+        <nav class="navx">
+            <ul>
+                <li>
+                    <label for="Unit">Choose a Unit:</label>
+                    <select name="Unit" id="O-Unit">
+                        <option value="" selected>--Please choose an option--</option>
+                        <option value="ALP">ALP</option>
+                        <option value="CHN">CHN</option>
+                        <option value="CLT">CLT</option>
+                        <option value="KLM">KLM</option>
+                        <option value="KNR">KNR</option>
+                        <option value="KTM">KTM</option>
+                        <option value="MPM">MPM</option>
+                        <option value="PKD">PKD</option>
+                        <option value="PTA">PTA</option>
+                        <option value="TCR">TCR</option>
+                        <option value="TVM">TVM</option>
+                        <option value="GLF">GLF</option>
+                        <option value="OK">OK</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="Editon">Choose an Editon:</label>
+
+                    <select name="Editon" id="O-Editon">
+                        <option value="" selected>--Please choose an option--</option>
+                        <option value="1" id="e1">1</option>
+                        <option value="2" id="e2">2</option>
+                        <option value="3" id="e3">3</option>
+                        <option value="4" id="e4">4</option>
+                        <option value="5" id="e5">5</option>
+                        <option value="ZDK">ZDK</option>
+                        <option value="ZDM">ZDM</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+        <div class="DatePicker">
+            <label>Date:</label>
+            <input type="date" id="open-fileDate" class="datepicker">
+        </div>
+        <div class="openpage-btn">
+            <sp-button variant="cta" class="sp-button" id="page-Select">Select</sp-button>
+        </div>
+        <div class="Open-Selector">
+
+            <a id="filename" class="filename_btn">DAK</a>
+
+
+        </div>
+        <div class="open-page-controller">
+            <sp-button variant="secondary" class="close-btn" id="closeOpenform">Close</sp-button>
+            <sp-button variant="cte" class="save-btn" id="openFile-btn">Open</sp-button>
+        </div>
+
+    </div>
+    <div class="NewPager-panel-form" id="createFile-form">
+        <h3>Create New Obit Page</h3>
+        <nav class="navx">
+            <ul>
+                <li>
+                    <label for="Unit">Choose a Unit:</label>
+                    <select name="Unit" id="C-Unit">
+                        <option value="" selected>--Please choose an option--</option>
+                        <option value="ALP">ALP</option>
+                        <option value="CHN">CHN</option>
+                        <option value="CLT">CLT</option>
+                        <option value="KLM">KLM</option>
+                        <option value="KNR">KNR</option>
+                        <option value="KTM">KTM</option>
+                        <option value="MPM">MPM</option>
+                        <option value="PKD">PKD</option>
+                        <option value="PTA">PTA</option>
+                        <option value="TCR">TCR</option>
+                        <option value="TVM">TVM</option>
+                        <option value="GLF">GLF</option>
+                        <option value="OK">OK</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="Editon">Choose an Editon:</label>
+
+                    <select name="Editon" id="C-edition">
+                        <option value="" selected>--Please choose an option--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="ZDK">ZDK</option>
+                        <option value="ZDM">ZDM</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+        <div class="DatePicker">
+            <label>Date:</label>
+            <input type="text" id="C-date" class="datepicker" readonly>
+        </div>
+        <div class="PageNo">
+            <label>Page:</label>
+            <input type="text" id="C-pageno" class="PageNo-in">
+        </div>
+        <div class="pageSelector">
+            <div class="optionLabel">
+                <label>Choose a Page:</label>
+            </div>
+            <div class="optionselector">
+                <select name="pager" id="C-pager">
+                    <option value="" selected>--Please choose an option--</option>
+                    <option value="1">Odd</option>
+                    <option value="2">Even</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="New-page-controller">
+            <sp-button variant="secondary" class="close-btn" id="closeNewform">Close</sp-button>
+            <sp-button variant="cte" class="save-btn" id="New-btn">Create</sp-button>
+        </div>
+    </div>
+
+
+    <!-- Admin Panel -->
+    <div class="admin-panel-form" id="admin-panel-form">
+        <form class="settings">
+            <h3>Preference Settings</h3>
+            <h5>Delimited File Folder</h5>
+            <input type="text" id="delimited-path" readonly>
+            <sp-button id="delimited-btn" class="selectBTN">...</sp-button>
+
+            <h5>RTF File Folder</h5>
+            <input type="text" id="rtf-path" readonly>
+            <sp-button id="rtf-btn" class="selectBTN">...</sp-button>
+
+            <h5>Media File Folder</h5>
+            <input type="text" id="media-path" readonly>
+            <sp-button id="media-btn" class="selectBTN">...</sp-button>
+
+            <h5>Page File Folder</h5>
+            <input type="text" id="page-path" readonly>
+            <sp-button id="page-btn" class="selectBTN">...</sp-button>
+
+            <h5>Template File Folder</h5>
+            <input type="text" id="template-path" readonly>
+            <sp-button id="template-btn" class="selectBTN">...</sp-button>
+        </form>
+        <div class="controller">
+            <sp-button variant="cte" class="Advanced-btn" id="Advanced-btn">Advanced</sp-button>
+            <sp-button variant="secondary" class="close-btn" id="close-btn">Close</sp-button>
+            <sp-button variant="cte" class="save-btn" id="save-btn">Save</sp-button>
+        </div>
+
+    </div>
+    <div class="advanced-panel-form" id="advanced-panel-form">
+        <div class="OddPage-Settings" >
+            <h4 style="margin-left: 25% ;">Odd Page Preferences</h4>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Email</label>
+                <label style="margin-left: 5%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddEmailx" class="temp_in">
+                <input type="text" id="oddEmaily" class="temp_in">
+                <input type="text" id="oddEmailw" class="temp_in">
+                <input type="text" id="oddEmailh" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Unit</label>
+                <label style="margin-left: 7%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddUnitx" class="temp_in">
+                <input type="text" id="oddUnity" class="temp_in">
+                <input type="text" id="oddUnitw" class="temp_in">
+                <input type="text" id="oddUnith" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Edition</label>
+                <label style="margin-left: 1%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 11.5%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddEditionx" class="temp_in">
+                <input type="text" id="oddEditiony" class="temp_in">
+                <input type="text" id="oddEditionw" class="temp_in">
+                <input type="text" id="oddEditionh" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Date</label>
+                <label style="margin-left: 6%;">X:</label>
+                <label style="margin-left: 10.5%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddDateX" class="temp_in">
+                <input type="text" id="oddDateY" class="temp_in">
+                <input type="text" id="oddDateW" class="temp_in">
+                <input type="text" id="oddDateH" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">PageNo</label>
+                <label style="margin-left:-1.5%;">X:</label>
+                <label style="margin-left: 10.5%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddPageX" class="temp_in">
+                <input type="text" id="oddPageY" class="temp_in">
+                <input type="text" id="oddPageW" class="temp_in">
+                <input type="text" id="oddPageH" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Styles Preferences</label>
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left:16%;">Year:</label>
+                <label style="margin-left: 24%;">Month:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddYearStyle" class="temp_inx">
+                <input type="text" id="oddMonthStyle" class="temp_inx">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left:16%;">Date:</label>
+                <label style="margin-left: 24%;">Day:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddDateStyle" class="temp_inx">
+                <input type="text" id="oddDayStyle" class="temp_inx">
+            </div>
+           
+        </div>
+
+        <div class="EvenPage-Settings">
+            <h4 style="margin-left: 25% ;">Even Page Preferences</h4>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Email</label>
+                <label style="margin-left: 5%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="EvenEmailx" class="temp_in">
+                <input type="text" id="EvenEmaily" class="temp_in">
+                <input type="text" id="EvenEmailh" class="temp_in">
+                <input type="text" id="EvenEmailw" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Unit</label>
+                <label style="margin-left: 7%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="EvenUnitx" class="temp_in">
+                <input type="text" id="EvenUnity" class="temp_in">
+                <input type="text" id="EvenUnitw" class="temp_in">
+                <input type="text" id="EvenUnith" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Edition</label>
+                <label style="margin-left: 1%;">X:</label>
+                <label style="margin-left: 10%;">Y:</label>
+                <label style="margin-left: 11.5%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="EvenEditionx" class="temp_in">
+                <input type="text" id="EvenEditiony" class="temp_in">
+                <input type="text" id="EvenEditionw" class="temp_in">
+                <input type="text" id="EvenEditionh" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Date</label>
+                <label style="margin-left: 6%;">X:</label>
+                <label style="margin-left: 10.5%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="EvenDateX" class="temp_in">
+                <input type="text" id="EvenDateY" class="temp_in">
+                <input type="text" id="EvenDateW" class="temp_in">
+                <input type="text" id="EvenDateH" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">PageNo</label>
+                <label style="margin-left:-1.5%;">X:</label>
+                <label style="margin-left: 10.5%;">Y:</label>
+                <label style="margin-left: 12%;">W:</label>
+                <label style="margin-left: 11%;">H:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="EvenPageX" class="temp_in">
+                <input type="text" id="EvenPageY" class="temp_in">
+                <input type="text" id="EvenPageW" class="temp_in">
+                <input type="text" id="EvenPageH" class="temp_in">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left: 1%;font-weight: bold;">Styles Preferences</label>
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left:16%;">PageNo:</label>
+                <label style="margin-left: 24%;">Email:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddPageNoStyle" class="temp_inx">
+                <input type="text" id="oddEmailStyle" class="temp_inx">
+            </div>
+            <div class="oddlabal">
+                <label style="margin-left:16%;">Unit:</label>
+                <label style="margin-left: 24%;">Edition:</label>
+            </div>
+            <div class="oddinput">
+                <input type="text" id="oddUnitStyle" class="temp_inx">
+                <input type="text" id="oddEditionStyle" class="temp_inx">
+            </div>
+  
+        </div>
+
+        <div class="adavanced_controller">
+            <sp-button variant="secondary" class="close-btn" id="closeAdvanced">Close</sp-button>
+            <sp-button variant="cte" class="save-btn" id="temp-prefSave-btn">Save</sp-button>
+        </div>
+    </div>
+
+
+</div>
+<dialog class="dialogboxError" id="error-box">
+
+    <div class="p-txt" id="err_txt">
+        <p class="dialog-TXT" id="ErrorTXT"></p>
+    </div>
+    <div class="dialogboxError-controller">
+        <nav>
+            <ul class="l-ul">
+                <li>
+                    <sp-button variant="cte" class="ok-btn" id="ok-btn">OK</sp-button>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</dialog>
+<dialog class="dialogbox-confirm" id="print-confirm-box">
+
+    <div class="p-txt" id=p_txt>
+        <p class="dialog-TXT" id="confirm-print"></p>
+        <sp-progressbar max=100  id="printing-bar" >
+        <sp-label slot="label">Printing...</sp-label>
+        </sp-progressbar>
+    </div>
+     <nav>
+            <ul>
+                <li>
+                    <sp-button variant="secondary" class="no-btn" id="print-no">No</sp-button>
+                </li>
+             <li>
+                    <sp-button variant="cte" class="yes-btn" id="print-yes">Yes</sp-button>
+                    <sp-button variant="cte" class="yes-btn" id="print-ok">Ok</sp-button>
+
+                </li>
+            </ul>
+        </nav>
+</dialog>
+</body>
+</html>

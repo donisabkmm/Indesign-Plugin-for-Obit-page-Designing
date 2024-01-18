@@ -1,0 +1,648 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.nav {
+    display: flex;
+    background-color: rgb(94, 92, 92);
+    color: rgb(243, 240, 240);
+    height: 62px;
+    align-items: center;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav ul li {
+    margin: 0 10px;
+}
+
+
+label {
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding-right: 10px;
+    margin-top: 2%;
+}
+
+select {
+    font-size: 0.9rem;
+    padding: 1px 1px;
+}
+
+.sp-button {
+    margin-top: 30%;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    padding-left: 5px;
+}
+
+.main-panel {
+    margin-top: 5px;
+    height: 620px;
+    width: 100%;
+    background-color: azure;
+}
+
+.adtree {
+    float: left;
+    border: 1px solid rgb(128, 128, 128);
+    height: 370px;
+    width: 315px;
+    margin: 2px 5px 2px 1%;
+    overflow-y: auto;
+    position: absolute;
+    background-color: rgb(237, 247, 252);
+}
+
+.Excluded-included_header {
+    position: fixed;
+    display: flex;
+    background-color: rgb(179, 178, 178);
+    color: rgb(243, 240, 240);
+    height: 35px;
+    width: 315px;
+    align-items: center;
+}
+
+.Excluded-included_header nav {
+    display: flex;
+    background-color: rgb(179, 178, 178);
+    color: rgb(243, 240, 240);
+    height: 35px;
+    width: 315px;
+    align-items: center;
+}
+
+.left-ul-header {
+    display: flex;
+    list-style-type: none;
+    margin-left: 1%;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.right-ul-header {
+    display: flex;
+    list-style-type: none;
+    margin-left: 30%;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.sp-checkbox-header {
+    color: white;
+    padding-left: 1px;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+}
+
+.includeAd_list {
+    margin-top: 38px;
+    height: 89.5%;
+    width: 315px;
+    background-color: rgb(221, 226, 230);
+    overflow-y: auto;
+}
+
+.includeAd_list sp-checkbox {
+    color: rgb(10, 10, 199);
+    margin-left: 8%;
+}
+
+.excludeAd_list {
+    margin-top: 38px;
+    height: 89.5%;
+    width: 315px;
+    background-color: rgb(221, 226, 230);
+    overflow-y: auto;
+}
+
+.excludeAd_list sp-checkbox {
+    color: rgb(10, 10, 199);
+    margin-left: 8%;
+}
+
+
+.adTreeExcluded {
+    float: right;
+    border: 1px solid rgb(128, 128, 128);
+    height: 370px;
+    width: 315px;
+    margin-top: 2px;
+    margin-left: 57%;
+    overflow-y: auto;
+    position: absolute;
+    background-color: rgb(237, 247, 252);
+}
+
+.obit_Extra {
+    display: inline-block;
+    position: fixed;
+    width: 95px;
+    margin-left: 43.7%;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.plugin_btn1 {
+    border: 1px solid rgb(128, 128, 128);
+    display: inline-block;
+    position: absolute;
+    width: 45px;
+    margin-left: -1%;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.plugin_btn2 {
+    border: 1px solid rgb(128, 128, 128);
+    display: inline-block;
+    position: absolute;
+    width: 45px;
+    margin-left: 53%;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.buttons {
+    border: 1px solid rgb(128, 128, 128);
+    display: inline-block;
+    position: absolute;
+    width: 45px;
+    align-items: center;
+    margin: 5% 3px 3px 47%;
+}
+
+.chngbutton {
+    width: 30px;
+    height: 28px;
+    /* display:inline-block; */
+    background-color: rgb(46, 46, 48);
+    color: aliceblue;
+}
+
+.function-buttons {
+    /* border: 1px solid gray; */
+    /* display: inline-block; */
+    position: absolute;
+    width: 90px;
+    height: 172px;
+    margin: 150px 150px 150px 44%;
+    align-items: center;
+}
+
+.f-btn {
+    align-self: center;
+    margin-left: 8px;
+    margin-top: 7px;
+}
+
+.included-heading {
+    margin-left: 1%;
+}
+
+.excluded-heading {
+    position: absolute;
+    margin-top: 1px;
+    float: right;
+    margin-left: 57%;
+}
+
+.preview-panel {
+    height: 205px;
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 378px;
+    margin-bottom: 2%;
+    position: absolute;
+    border: 1px solid rgb(128, 128, 128);
+    background-color: rgb(237, 247, 252);
+}
+
+.preview-panel nav {
+    display: flex;
+    background-color: rgb(179, 178, 178);
+    color: rgb(243, 240, 240);
+    height: 40px;
+    width: 100.1%;
+    align-items: center;
+}
+
+.left-ul {
+    display: flex;
+    list-style-type: none;
+    margin-left: 0.5%;
+}
+
+.right-ul {
+    display: flex;
+    list-style-type: none;
+    margin-left: 15%;
+}
+
+.id-display {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.value {
+    color: #0d498a;
+    width: 40px;
+}
+
+.login {
+    overflow: hidden;
+    background-color: rgb(110, 105, 105);
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    width: 400px;
+    color: azure;
+}
+
+input {
+    background-color: white;
+    color: black;
+    height: 30px;
+    width: 300px;
+    margin-left: 6%;
+}
+
+#login-btn {
+    margin-left: 25%;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+#cancel-btn {
+    margin-left: 25%;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.photo-label {
+    margin-top: 5px;
+    margin-left: 5%;
+    font-weight: bold;
+    font-size: small;
+}
+
+.story-photo img {
+    width: 160px;
+    height: 126px;
+    background-color: rgb(233, 233, 231);
+    margin-top: 5px;
+    margin-left: 3%;
+    position: absolute;
+}
+
+.story-content {
+    position: absolute;
+    width: 530px;
+    height: 130px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    margin-left: 26%;
+    overflow-y: auto;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: small;
+}
+
+.admin-panel-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 480px;
+    background-color: rgb(110, 105, 105);
+    position: absolute;
+    border-radius: 10px;
+}
+
+.controller {
+    width: 100%;
+    margin-top: 3%;
+}
+
+.save-btn {
+    margin-left: 50%;
+    width: 150px;
+}
+
+.close-btn {
+    margin-left: 2.5%;
+    width: 150px;
+}
+
+.settings {
+    margin-top: 5%;
+    color: black;
+}
+
+.settings h3 {
+    margin-left: 40%;
+    margin-top: -1%;
+    color: white;
+}
+
+.settings h5 {
+    margin-left: 6%;
+    color: white;
+}
+
+.settings input {
+    width: 80%;
+}
+
+.dialogbox {
+    width: 210px;
+    height: 160px;
+}
+
+.dialogbox-controller {
+    width: 100%;
+    margin-top: 1%;
+}
+
+.yes-btn {
+    position: absolute;
+    margin-top: -3%;
+    margin-left: 25%;
+    width: 30px;
+}
+
+.no-btn {
+    position: absolute;
+    margin-top: -3%;
+    margin-left: -15%;
+    width: 30px;
+}
+
+.dialogbox nav {
+    display: flex;
+    color: rgb(243, 240, 240);
+    align-items: center;
+    padding-top: 32%;
+    padding-left: 52%;
+}
+
+.l-ul {
+    display: flex;
+    list-style-type: none;
+    margin-left: 10%;
+}
+
+.r-ul {
+    display: flex;
+    list-style-type: none;
+    margin-left: 5%;
+}
+
+.p-txt {
+    margin-top: -20%;
+    width: 220px;
+    height: auto;
+}
+
+#confirmTxt {
+    color: white;
+}
+
+.dialog-TXT {
+    color: white;
+}
+
+.navx {
+    display: flex;
+    background-color: rgb(110, 105, 105);
+    color: rgb(243, 240, 240);
+    height: 62px;
+    width: 99%;
+    align-items: center;
+}
+
+.navx ul {
+    display: flex;
+    position: absolute;
+    list-style-type: none;
+}
+
+.h3 {
+    color: #fff;
+}
+
+.navx ul li {
+    margin: 0 10px;
+    margin-left: 10%;
+}
+
+.openpage-btn {
+    position: absolute;
+    margin-left: 78.5%;
+    margin-top: 0%;
+}
+
+.OpenPager-panel-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 360px;
+    background-color: rgb(110, 105, 105);
+    position: absolute;
+    border-radius: 10px;
+    color: #b7d4f3;
+}
+
+.OpenPager-panel-form h3 {
+    margin-left: 43%;
+}
+
+.open-page-controller {
+    width: 100%;
+    margin-top: 27%;
+}
+
+.DatePicker {
+    color: #fff;
+    margin-left: 10.2%;
+}
+
+.datepicker {
+    position: absolute;
+    margin-left: 1%;
+    height: 25px;
+    width: 24.5%;
+    background-color: darkgray;
+    color: #fff;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.PageNo {
+    color: #fff;
+    margin-top: -3.5%;
+    margin-left: 58.5%;
+    position: absolute;
+}
+
+.PageNo-in {
+    position: absolute;
+    margin-top: -3%;
+    margin-left: 1%;
+    height: 25px;
+    width: 158px;
+}
+
+.save-btn {
+    margin-left: 2%;
+    width: 150px;
+}
+
+.close-btn {
+    margin-left: 42%;
+    width: 150px;
+}
+
+.Open-Selector {
+    position: absolute;
+    width: 79%;
+    height: 30%;
+    background-color: #dadcdd;
+    margin-left: 10%;
+    margin-top: 9%;
+    overflow-y: auto;
+}
+
+.filename_btn {
+    margin: 0%;
+    width: 100%;
+    color: black;
+
+}
+
+.filename_btn:hover {
+    background-color: #0d498a;
+    color: #fff;
+}
+
+.NewPager-panel-form {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 90%;
+    height: 240px;
+    background-color: rgb(110, 105, 105);
+    position: absolute;
+    border-radius: 10px;
+    color: #b7d4f3;
+}
+
+.NewPager-panel-form h3 {
+    margin-top: 2%;
+    margin-left: 39%;
+}
+
+.New-page-controller {
+    width: 100%;
+    margin-top: 8%;
+}
+
+.pageSelector {
+    position: absolute;
+}
+
+.optionLabel {
+    color: #fff;
+    margin-left: 32%;
+}
+
+.optionselector {
+    color: #fff;
+    margin-left: 28%;
+}
+
+.Advanced-btn {
+    position: absolute;
+    margin-left: 5%;
+    width: 150px;
+}
+.advanced-panel-form
+{
+    margin-top: 1%;
+    margin-left: 2.5%;
+    width: 95%;
+    height: 600px;;
+    background-color: rgb(110, 105, 105);
+    position: absolute;
+    border-radius: 10px;
+    color:white;
+}
+.adavanced_controller {
+    width: 100%;
+    margin-top: 78%;
+}
+.OddPage-Settings
+{
+    position: absolute;
+    margin-top: 1%;
+    width: 45%;
+    margin-left: 5%;
+    color: white;
+    height:90%;
+    border: 1px solid rgb(252, 250, 250);
+    overflow-y: auto;
+    
+}
+.EvenPage-Settings
+{
+    position: absolute;
+    margin-top: 1%;
+    width: 45%;
+    margin-left: 50%;
+    color: white;
+    height:90%;
+    border: 1px solid rgb(252, 250, 250);
+    overflow-y: auto;
+    
+}
+.oddinput
+{
+    margin-top: -2%;
+    margin-left: 18%;
+}
+.oddlabel
+{
+    margin-top:-3%;
+}
+.temp_in
+{
+    width: 40px;
+    margin-top: -1%;
+    margin-left: 5%;
+    height: 30px;
+}
+.temp_inx
+{
+    width: 100px;
+    margin-top: -1%;
+    margin-left: 2%;
+    height: 30px;
+}
